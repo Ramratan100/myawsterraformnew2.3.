@@ -9,6 +9,7 @@ resource "aws_instance" "mysql_instance" {
   key_name      = var.key_name
   subnet_id     = var.private_subnet_id
   security_groups = [module.security_group.mysql_sg_id]
+depends_on = [module.security_group]
 
   user_data = <<-EOF
     #!/bin/bash
@@ -31,6 +32,7 @@ resource "aws_instance" "bastion_host" {
   subnet_id                  = var.public_subnet_id
   security_groups            = [module.security_group.bastion_sg_id]
   associate_public_ip_address = true
+depends_on = [module.security_group]
 
   user_data = <<-EOF
     #!/bin/bash
