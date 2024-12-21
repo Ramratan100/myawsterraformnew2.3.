@@ -206,24 +206,3 @@ resource "aws_instance" "bastion_host" {
     Name = "Bastion-Host"
   }
 }
-
-
-resource "aws_instance" "mysql_instance" {
-  ami           = var.ami
-  instance_type = var.instance_type
-  key_name      = var.key_name
-  subnet_id     = var.private_subnet_id
-  security_groups = [module.security_group.mysql_sg_id]
-
-user_data = <<-EOF
-    #!/bin/bash
-    # Update system and install Ansible dependencies
-    sudo apt-get update -y
-    sudo apt-get install -y python3 python3-pip
-    sudo pip3 install boto3
-EOF
-
-  tags = {
-    Name = "MySQL-Instance"
-  }
-}
