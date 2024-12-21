@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-output_bastion_host=$(terraform output -raw bastion_host_public_ip)
+output_bastion=$(terraform output -raw bastion_host_public_ip)
 output_mysql_ip=$(terraform output -raw mysql_instance_private_ip)
 
 if [ -z "$output_bastion_host" ] || [ -z "$output_mysql_ip" ]; then
