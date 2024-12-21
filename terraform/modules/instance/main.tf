@@ -12,6 +12,8 @@ user_data = <<-EOF
     # Update system and install required packages
     sudo apt-get update -y
     sudo apt-get install -y python3 python3-pip awscli apache2
+    sudo apt install php-mysqli -y
+    sudo apt install mysql-client-core-8.0
 
     # Install Python packages
     sudo pip3 install boto3
