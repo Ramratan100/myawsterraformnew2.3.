@@ -2,10 +2,10 @@
 
 cd "$(dirname "$0")"
 
-output_bastion=$(terraform output -raw bastion_host_public_ip)
-output_mysql_ip=$(terraform output -raw mysql_instance_private_ip)
+output_bastion=$(terraform output -raw bastion_instance_ip)
+output_mysql_ip=$(terraform output -raw mysql_instance_ip)
 
-if [ -z "$output_bastion_host" ] || [ -z "$output_mysql_ip" ]; then
+if [ -z "$output_bastion" ] || [ -z "$output_mysql_ip" ]; then
   echo "Error: Terraform outputs are missing. Ensure Terraform has been applied."
   exit 1
 fi
@@ -14,8 +14,8 @@ fi
 cat <<EOF > ../ansible/inventory.yml
 bastion:
   hosts:
-    bastion_host:
-      ansible_host: $output_bastion_host
+    bastion_instance:
+      ansible_host: $output_bastion
       ansible_user: ubuntu
 
 mysql:
