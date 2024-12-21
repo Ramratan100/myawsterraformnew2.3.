@@ -1,5 +1,5 @@
 module "security_group" {
-  source = "./security_group"
+  source = "./modules/security_group"
 }
 
 # MySQL Instance
