@@ -3,29 +3,49 @@
   hosts: mysql
   become: yes
   tasks:
-    - name: Install MySQL
+    - name: Install MySQL Server
       apt:
         name: mysql-server
         state: present
         update_cache: yes
 
-    - name: Create Database and User
-      mysql_user:
+    - name: Ensure MySQL Service is Running
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: Create Database User
+      community.mysql.mysql_user:
         name: web_user
         password: password
-        priv: "*.*:ALL"
+        priv: "employees.*:ALL"
         host: "%"
         state: present
 
     - name: Create Database
-      mysql_db:
-        name: testdb
+      community.mysql.mysql_db:
+        name: employees
         state: present
 
-    - name: Create Sample Table
-      mysql_query:
+    - name: Create Table and Insert Sample Data
+      community.mysql.mysql_query:
         login_user: root
         query: |
-          USE testdb;
-          CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100));
-          INSERT INTO users (name) VALUES ('Test User');
+          CREATE TABLE IF NOT EXISTS employees.employee_data (
+              id INT AUTO_INCREMENT PRIMARY KEY,
+              name VARCHAR(255) NOT NULL,
+              department VARCHAR(255) NOT NULL,
+              salary DECIMAL(10, 2) NOT NULL,
+              hire_date DATE NOT NULL
+          );
+          INSERT INTO employees.employee_data (name, department, salary, hire_date) 
+          VALUES 
+              ('Alice', 'HR', 50000.00, '2022-01-15'),
+              ('Bob', 'IT', 70000.00, '2023-03-10'),
+              ('Charlie', 'Finance', 60000.00, '2021-11-20')
+          ON DUPLICATE KEY UPDATE 
+              name = VALUES(name), 
+              department = VALUES(department),
+              salary = VALUES(salary),
+              hire_date = VALUES(hire_date);
