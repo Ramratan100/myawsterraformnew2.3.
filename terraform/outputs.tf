@@ -22,12 +22,3 @@ output "mysql_instance_id" {
   description = "The ID of the MySQL instance"
   value       = module.instance.mysql_instance_id
 }
-
-output "bastion_instance_id" {
-  value = aws_instance.bastion_host.id
-}
-
-output "mysql_instance_id" {
-  value = aws_instance.mysql_instance.id
-}
-
