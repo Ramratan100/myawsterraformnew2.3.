@@ -29,13 +29,3 @@ module "instance" {
   private_subnet_id = module.vpc.private_subnet_database_id
   public_subnet_id  = module.vpc.public_subnet_web_id
 }
-
-terraform {
-  backend "s3" {
-    bucket         = "ramratan-bucket-2510"
-    key            = "global/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform_tool-lock-table"
-    encrypt        = true
-  }
-}
