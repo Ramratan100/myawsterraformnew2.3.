@@ -2,8 +2,8 @@
 
 cd "$(dirname "$0")"
 
-output_bastion=$(terraform output -raw instance.bastion_instance_ip)
-output_mysql_ip=$(terraform output -raw instance.mysql_instance_ip)
+output_bastion=$(terraform output -raw modules/instance.bastion_instance_ip)
+output_mysql_ip=$(terraform output -raw modulesinstance.mysql_instance_ip)
 
 if [ -z "$output_bastion" ] || [ -z "$output_mysql_ip" ]; then
   echo "Error: Terraform outputs are missing. Ensure Terraform has been applied."
