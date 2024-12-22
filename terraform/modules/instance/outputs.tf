@@ -1,5 +1,5 @@
 output "bastion_host_id" {
-  value = aws_instance.bastion_instance.id
+  value = aws_instance.bastion_host.id
 }
 
 output "mysql_instance_id" {
@@ -7,7 +7,7 @@ output "mysql_instance_id" {
 }
 
 output "bastion_host_ip" {
-  value = aws_instance.bastion_instance.public_ip
+  value = aws_instance.bastion_host.public_ip
 }
 
 output "mysql_instance_ip" {
