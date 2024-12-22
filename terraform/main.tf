@@ -24,8 +24,8 @@ module "instance" {
   ami              = var.ami
   instance_type    = var.instance_type
   key_name         = var.key_name
-  bastion_sg_id    = module.security_group.bastion_sg_id
-  mysql_sg_id      = module.security_group.mysql_sg_id
-  private_subnet_id = module.vpc.private_subnet_database_id
-  public_subnet_id  = module.vpc.public_subnet_web_id
+  bastion_sg_id    = [module.security_group.bastion_sg_id]
+  mysql_sg_id      = [module.security_group.mysql_sg_id]
+  private_subnet_id = [module.vpc.private_subnet_database_id]
+  public_subnet_id  = [module.vpc.public_subnet_web_id]
 }
