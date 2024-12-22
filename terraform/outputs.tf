@@ -24,9 +24,11 @@ output "mysql_instance_id" {
 }
 
 output "bastion_host_ip" {
+description = "The IP of the MySQL instance"
   value = module.instance.bastion_host_ip
 }
 
 output "mysql_instance_private_ip" {
+description = "The IP of the Bastion host instance"
   value = module.instance.mysql_instance_ip
 }
