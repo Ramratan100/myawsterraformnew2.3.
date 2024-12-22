@@ -23,12 +23,10 @@ output "mysql_instance_id" {
   value       = module.instance.mysql_instance_id
 }
 
-output "bastion_host_ip" {
-description = "The IP of the Bastion host instance"
-  value     = module.instance.bastion_host_ip
+output "bastion_host_public_ip" {
+  value = aws_instance.bastion_host.public_ip
 }
 
 output "mysql_instance_private_ip" {
-description = "The IP of the MYSQL instance"
-  value     = module.instance.mysql_instance_ip
+  value = aws_instance.mysql_instance.private_ip
 }
