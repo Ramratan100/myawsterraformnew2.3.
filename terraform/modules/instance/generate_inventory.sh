@@ -11,7 +11,7 @@ if [ -z "$output_bastion_host" ] || [ -z "$output_mysql_ip" ]; then
 fi
 
 # Generate YAML inventory
-cat <<EOF > ../ansible/inventory.yml
+cat <<EOF > ../ ../ansible/inventory.yml
 bastion:
   hosts:
     bastion_host:
