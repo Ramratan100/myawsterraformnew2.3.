@@ -199,6 +199,6 @@ resource "aws_instance" "bastion_host" {
   EOF
 
   tags = {
-    Name = "Bastion-Instance"
+    Name = "Bastion-host"
   }
 }
