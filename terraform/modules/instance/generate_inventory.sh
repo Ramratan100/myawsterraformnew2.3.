@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-output_bastion=$(terraform output -raw bastion_instance_ip)
+output_bastion=$(terraform output -raw bastion_host_ip)
 output_mysql_ip=$(terraform output -raw mysql_instance_ip)
 
 if [ -z "$output_bastion" ] || [ -z "$output_mysql_ip" ]; then
@@ -14,7 +14,7 @@ fi
 cat <<EOF > ../ansible/inventory.yml
 bastion:
   hosts:
-    bastion_instance:
+    bastion_host:
       ansible_host: $output_bastion
       ansible_user: ubuntu
 
