@@ -1,7 +1,3 @@
-module "security_group" {
-  source = "../security_group"
-}
-
 # MySQL Instance
 resource "aws_instance" "mysql_instance" {
   ami           = var.ami
