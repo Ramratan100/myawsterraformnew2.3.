@@ -13,9 +13,9 @@ output "private_subnet_database_id" {
   value       = module.vpc.private_subnet_database_id
 }
 
-output "bastion_instance_id" {
+output "bastion_host_id" {
   description = "The ID of the Bastion host instance"
-  value       = module.instance.bastion_instance_id
+  value       = module.instance.bastion_host_id
 }
 
 output "mysql_instance_id" {
