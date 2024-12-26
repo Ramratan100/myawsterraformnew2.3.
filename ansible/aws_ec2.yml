@@ -5,6 +5,7 @@ filters:
   
   tag:Name:
     - MySQL-Instance
+    - Bastion-Host
   instance-state-name : running
 
 compose:
