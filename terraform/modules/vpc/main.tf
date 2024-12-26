@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "database_igw" {
 resource "aws_subnet" "public_subnet_web" {
   vpc_id                  = aws_vpc.database_vpc.id
   cidr_block              = var.public_subnet_web_cidr
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ap-northeast-1a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -56,7 +56,7 @@ resource "aws_subnet" "public_subnet_web" {
 resource "aws_subnet" "private_subnet_database" {
   vpc_id                  = aws_vpc.database_vpc.id
   cidr_block              = var.private_subnet_database_cidr
-  availability_zone       = "us-east-1a"
+  availability_zone       = "ap-northeast-1a"
   map_public_ip_on_launch = false
 
   tags = {
