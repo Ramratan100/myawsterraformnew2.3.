@@ -1,6 +1,6 @@
 ---
 - name: Configure Bastion Host
-  hosts: bastion
+  hosts: Bastion-Host
   become: yes
   tasks:
     - name: Install Apache and PHP
