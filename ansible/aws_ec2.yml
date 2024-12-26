@@ -4,7 +4,7 @@ regions:
 filters:
   
   tag:Name:
-    - mysql
+    - MySQL-Instance
   instance-state-name : running
 
 compose:
