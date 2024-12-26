@@ -1,6 +1,6 @@
 ---
 - name: Configure MySQL Server
-  hosts: mysql
+  hosts: MySQL-Instance
   become: yes
   tasks:
     - name: Install MySQL Server
