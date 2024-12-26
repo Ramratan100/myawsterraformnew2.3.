@@ -1,7 +1,7 @@
 variable "region" {
   description = "AWS Region"
   type        = string
-  default     = "us-east-1"
+  default     = "ap-northeast-1"
 }
 
 variable "database_vpc_cidr" {
@@ -25,19 +25,19 @@ variable "private_subnet_database_cidr" {
 variable "master_vpc_id" {
   description = "Master VPC ID for peering"
   type        = string
-  default     = "vpc-0feb480adeeba0347"
+  default     = "vpc-00ec09536f7ae310f"
 }
 
 variable "master_route_table_id" {
   description = "Master VPC Route Table ID"
   type        = string
-  default     = "rtb-04dd6c158fec5d70c"
+  default     = "rtb-0c82564b54a7fa492"
 }
 
 variable "ami" {
   description = "AMI ID"
   type        = string
-  default     = "ami-005fc0f236362e99f"
+  default     = "ami-0ac6b9b2908f3e20d"
 }
 
 variable "instance_type" {
@@ -49,7 +49,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "key_name"
   type        = string
-  default     = "jenkins"
+  default     = "tokyojenkins"
 }
 
 variable "master_vpc_cidr" {
